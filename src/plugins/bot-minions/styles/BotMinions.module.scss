@@ -1,0 +1,596 @@
+/**
+ * Project Argus — Bot Minions Dashboard Styles
+ * Follows telegram-tt's design language with operational monitoring aesthetics.
+ */
+
+/* ─── Color Variables ─────────────────────────────────────────────────────── */
+:root {
+  --minion-running: #16a34a;
+  --minion-paused: #d97706;
+  --minion-stopped: #6b7280;
+  --minion-error: #dc2626;
+  --minion-starting: #2563eb;
+  --alert-info: #2563eb;
+  --alert-warning: #d97706;
+  --alert-critical: #dc2626;
+  --minion-panel-bg: var(--color-background);
+  --minion-card-bg: var(--color-background-secondary, #f8f9fa);
+  --minion-border: var(--color-borders, rgba(0, 0, 0, 0.08));
+}
+
+/* ─── Dashboard Layout ────────────────────────────────────────────────────── */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--minion-panel-bg);
+}
+
+.dashboardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--minion-border);
+
+  h2 {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.headerActions {
+  display: flex;
+  gap: 8px;
+}
+
+.headerBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: 1px solid var(--minion-border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: var(--minion-card-bg);
+  }
+
+  &.primary {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+}
+
+/* ─── Tabs ────────────────────────────────────────────────────────────────── */
+.dashboardTabs {
+  display: flex;
+  border-bottom: 1px solid var(--minion-border);
+  padding: 0 20px;
+}
+
+.tab {
+  padding: 10px 16px;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s ease;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  position: relative;
+
+  &:hover {
+    color: var(--color-text);
+  }
+
+  &.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+}
+
+.tabBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  margin-left: 6px;
+  border-radius: 9px;
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-bold);
+  background: var(--alert-critical);
+  color: white;
+}
+
+.dashboardContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+}
+
+/* ─── Stats Grid ──────────────────────────────────────────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.statCard {
+  background: var(--minion-card-bg);
+  border: 1px solid var(--minion-border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+/* ─── Minion Cards ────────────────────────────────────────────────────────── */
+.minionList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.minionCard {
+  background: var(--minion-card-bg);
+  border: 1px solid var(--minion-border);
+  border-radius: 12px;
+  padding: 16px;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+}
+
+.minionCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.minionName {
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.minionType {
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+
+  &.running {
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--minion-running);
+  }
+
+  &.paused {
+    background: rgba(217, 119, 6, 0.1);
+    color: var(--minion-paused);
+  }
+
+  &.stopped {
+    background: rgba(107, 114, 128, 0.1);
+    color: var(--minion-stopped);
+  }
+
+  &.error {
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--minion-error);
+  }
+
+  &.starting {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--minion-starting);
+  }
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+
+  .running & {
+    animation: pulse 2s infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.minionMeta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 10px;
+}
+
+.minionActions {
+  display: flex;
+  gap: 6px;
+}
+
+.actionBtn {
+  padding: 4px 10px;
+  border: 1px solid var(--minion-border);
+  border-radius: 6px;
+  background: transparent;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--color-text);
+
+  &:hover {
+    background: var(--minion-card-bg);
+    border-color: var(--color-primary);
+  }
+
+  &.danger {
+    color: var(--minion-error);
+    border-color: rgba(220, 38, 38, 0.3);
+
+    &:hover {
+      background: rgba(220, 38, 38, 0.08);
+    }
+  }
+}
+
+/* ─── Alert Feed ──────────────────────────────────────────────────────────── */
+.alertFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alertItem {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: var(--minion-card-bg);
+  border: 1px solid var(--minion-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+
+  &.unread {
+    border-left: 3px solid var(--color-primary);
+  }
+
+  &.critical {
+    border-left: 3px solid var(--alert-critical);
+    background: rgba(220, 38, 38, 0.03);
+  }
+
+  &.warning {
+    border-left: 3px solid var(--alert-warning);
+  }
+}
+
+.alertPriorityIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+
+  &.info {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--alert-info);
+  }
+
+  &.warning {
+    background: rgba(217, 119, 6, 0.1);
+    color: var(--alert-warning);
+  }
+
+  &.critical {
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--alert-critical);
+  }
+}
+
+.alertContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.alertTitle {
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alertDescription {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.alertTime {
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ─── Log Viewer ──────────────────────────────────────────────────────────── */
+.logViewer {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  border-radius: 10px;
+  padding: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.logEntry {
+  padding: 2px 0;
+  display: flex;
+  gap: 8px;
+
+  &.debug { color: #888; }
+  &.info { color: #e0e0e0; }
+  &.warn { color: #d97706; }
+  &.error { color: #dc2626; }
+}
+
+.logTime {
+  color: #666;
+  flex-shrink: 0;
+}
+
+.logLevel {
+  font-weight: var(--font-weight-bold);
+  width: 40px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.logMessage {
+  word-break: break-word;
+}
+
+/* ─── Config Wizard ───────────────────────────────────────────────────────── */
+.wizard {
+  background: var(--minion-card-bg);
+  border: 1px solid var(--minion-border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.wizardTitle {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 16px;
+}
+
+.wizardStep {
+  margin-bottom: 20px;
+}
+
+.wizardStepTitle {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.formGroup {
+  margin-bottom: 14px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 4px;
+  color: var(--color-text);
+}
+
+.formHint {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.formInput {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--minion-border);
+  border-radius: 8px;
+  background: var(--minion-panel-bg);
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+
+  &:focus {
+    border-color: var(--color-primary);
+  }
+}
+
+.formTextarea {
+  @extend .formInput;
+  min-height: 80px;
+  resize: vertical;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.formSelect {
+  @extend .formInput;
+  cursor: pointer;
+}
+
+.formCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+
+  input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+}
+
+.chipList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--color-primary);
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.chipRemove {
+  cursor: pointer;
+  opacity: 0.6;
+  font-size: 0.875rem;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.wizardActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* ─── Empty State ─────────────────────────────────────────────────────────── */
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--color-text-secondary);
+
+  h3 {
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: 8px;
+    color: var(--color-text);
+  }
+
+  p {
+    font-size: 0.8125rem;
+    max-width: 300px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+}
+
+/* ─── Alert Detail Modal ─────────────────────────────────────────────────── */
+.alertDetail {
+  background: var(--minion-panel-bg);
+  border: 1px solid var(--minion-border);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+}
+
+.alertDetailHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.alertDetailBody {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.alertDetailMeta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--minion-border);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
