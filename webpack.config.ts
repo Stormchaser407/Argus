@@ -230,6 +230,10 @@ export default function createConfig(
         // eslint-disable-next-line no-null/no-null
         TEST_SESSION: null,
         BASE_URL,
+        // Argus Scam Sniffer API keys (graceful degradation when undefined)
+        ARGUS_CHAINABUSE_API_KEY: '',
+        ARGUS_SAFE_BROWSING_API_KEY: '',
+        ARGUS_VIRUSTOTAL_API_KEY: '',
       }),
       // Updates each dev re-build to provide current git branch or commit hash
       new DefinePlugin({
