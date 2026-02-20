@@ -1,3 +1,5 @@
+_This file has been updated for Project Argus. The original README from `telegram-tt` is preserved as `README.original.md`._
+
 # Project Argus
 
 **Project Argus** is a specialized, custom-built Telegram client designed for investigators, threat researchers, and public safety professionals. It focuses on critical operational gaps in digital investigations, specifically concerning missing children, human trafficking, and scam detection.
