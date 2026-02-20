@@ -123,6 +123,9 @@ import DeleteMemberModal from './DeleteMemberModal';
 import StarGiftCollectionList from './gifts/StarGiftCollectionList';
 import StoryAlbumList from './stories/StoryAlbumList';
 
+import ArgusIntelPanel from '../../plugins/investigator-toolkit/components/ArgusIntelPanel';
+import EvidencePanel from '../../plugins/evidence-preservation/components/EvidencePanel';
+
 import './Profile.scss';
 
 type OwnProps = {
@@ -1117,6 +1120,8 @@ const Profile = ({
           isSavedDialog={isSavedDialog}
           isOwnProfile={isOwnProfile}
         />
+        <ArgusIntelPanel chatOrUserId={profileId} />
+        <EvidencePanel chatId={profileId} />
       </div>
     );
   }
