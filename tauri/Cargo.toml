@@ -1,10 +1,10 @@
- [package]
-name = "telegram_air"
-version = "2.9.3"
-description = "Telegram Air"
-authors = ["Alexander Zinchuk"]
+[package]
+name = "argus"
+version = "0.1.0"
+description = "Project Argus — Investigative Telegram Client"
+authors = ["Cash <stormchaser407@users.noreply.github.com>"]
 license = "GPLv3"
-repository = "https://github.com/Ajaxy/telegram-tt"
+repository = "https://github.com/Stormchaser407/Argus"
 edition = "2024"
 rust-version = "1.85"
 

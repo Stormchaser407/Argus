@@ -1,0 +1,481 @@
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/common/PeerBadge.module.scss ***!
+  \************************************************************************************************************************************************************************************************************/
+.PeerBadge-module__root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.PeerBadge-module__top {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.PeerBadge-module__badge {
+  position: absolute;
+  z-index: 1;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.125rem;
+  align-items: center;
+  padding: 0.25rem;
+  border: 2px solid var(--color-background);
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  color: var(--color-white);
+  white-space: nowrap;
+  background-color: var(--color-primary);
+}
+
+.PeerBadge-module__text {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/common/InteractiveSparkles.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************/
+.InteractiveSparkles-module__sparkles {
+  pointer-events: auto;
+  position: absolute;
+  top: 0;
+}
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/modals/common/SpeedingDiamond.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************/
+.SpeedingDiamond-module__root {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14.375rem;
+}
+
+.SpeedingDiamond-module__diamond {
+  margin-top: -4rem;
+  transition: transform 0.25s ease-out;
+}
+.SpeedingDiamond-module__diamond:hover {
+  transform: scale(1.1);
+}
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/modals/common/SwayingStar.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************/
+.SwayingStar-module__root {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14.375rem;
+}
+
+.SwayingStar-module__star {
+  pointer-events: none;
+  position: relative;
+  transform-style: preserve-3d;
+  width: 6.25rem;
+  height: 6.25rem;
+  min-height: 6.25rem;
+  margin-top: -4.5rem;
+  background-image: url(GoldStar.fb6812e915ddfe27f504.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: transform 0.6s ease-out;
+}
+.SwayingStar-module__star::before, .SwayingStar-module__star::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(GoldStarFill.c354c29112f5429c7358.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.SwayingStar-module__star::before {
+  z-index: -1;
+  transform: translateZ(-3px);
+  filter: brightness(0.8);
+}
+.SwayingStar-module__star::after {
+  z-index: -2;
+  transform: translateZ(-6px);
+  filter: brightness(0.8);
+}
+.SwayingStar-module__root:hover .SwayingStar-module__star {
+  transition-duration: 0.5s;
+}
+.SwayingStar-module__star_purple {
+  background-image: url(PremiumStar.39c1ff364d35554f4b80.svg);
+}
+.SwayingStar-module__star_purple::before, .SwayingStar-module__star_purple::after {
+  background-image: url(PremiumStarFill.2f05adf296374ba0c239.svg);
+}
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/modals/common/ParticlesHeader.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************/
+.ParticlesHeader-module__root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 9rem;
+}
+
+.ParticlesHeader-module__particles {
+  position: absolute;
+  top: 0;
+}
+
+.ParticlesHeader-module__title {
+  z-index: 0;
+  margin-inline: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
+.ParticlesHeader-module__description {
+  z-index: 0;
+  margin-bottom: 1rem;
+  margin-inline: 0.5rem;
+  line-height: 1.375;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.ParticlesHeader-module__stickerWrapper {
+  position: absolute;
+  z-index: 1;
+  top: 2rem;
+  transition: transform 0.25s ease-out;
+}
+.ParticlesHeader-module__stickerWrapper:hover {
+  transform: scale(1.1);
+}
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/modals/stars/StarTopupOptionList.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************/
+.StarTopupOptionList-module__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.StarTopupOptionList-module__option {
+  --_background-color: var(--color-background-secondary);
+  cursor: var(--custom-cursor, pointer);
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 0.625rem;
+  background-color: var(--_background-color);
+  transition: background-color 0.25s ease-out;
+}
+.StarTopupOptionList-module__option:hover {
+  --_background-color: var(--color-background-secondary-accent);
+}
+
+.StarTopupOptionList-module__active {
+  --_background-color: var(--color-background-secondary-accent);
+}
+
+.StarTopupOptionList-module__wideOption {
+  grid-column: 1/-1;
+}
+
+.StarTopupOptionList-module__optionTop {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+}
+
+.StarTopupOptionList-module__stackedStars {
+  display: grid;
+  grid-auto-columns: 0.4375rem;
+  grid-auto-flow: column;
+  justify-items: end;
+}
+
+.StarTopupOptionList-module__stackedStar {
+  filter: drop-shadow(0.0625rem 0.0625rem 0 var(--_background-color)) drop-shadow(-0.0625rem 0.0625rem 0 var(--_background-color)) drop-shadow(0.0625rem -0.0625rem 0 var(--_background-color)) drop-shadow(-0.0625rem -0.0625rem 0 var(--_background-color));
+  transition: filter 0.25s ease-out;
+}
+
+.StarTopupOptionList-module__optionBottom {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.StarTopupOptionList-module__moreOptions {
+  grid-column: 1/-1;
+}
+
+.StarTopupOptionList-module__iconDown {
+  margin-inline-start: 0.25rem;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 450px) {
+  .StarTopupOptionList-module__optionTop {
+    font-size: 1rem;
+  }
+}
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/common/pickers/PickerModal.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************/
+.PickerModal-module__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.PickerModal-module__fixedHeight .PickerModal-module__content {
+  height: 90vh;
+}
+
+.PickerModal-module__withSearch .PickerModal-module__content {
+  padding: 0;
+}
+.PickerModal-module__withSearch .PickerModal-module__header {
+  margin-bottom: -0.75rem;
+}
+
+.PickerModal-module__header {
+  padding: 0.25rem !important;
+}
+
+.PickerModal-module__buttonWrapper {
+  position: relative;
+  padding-top: 0.25rem;
+  padding-bottom: 1rem;
+  padding-inline: 1rem;
+}
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/modals/common/TableInfo.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************/
+.TableInfo-module__table {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  flex-shrink: 0;
+  gap: 1px;
+  border: 1px solid var(--color-borders);
+  border-radius: 1rem;
+  background-color: var(--color-borders);
+}
+
+.TableInfo-module__cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.TableInfo-module__title {
+  background-color: var(--color-background-secondary);
+}
+
+.TableInfo-module__value {
+  min-width: 2rem;
+  overflow-wrap: anywhere;
+  background-color: var(--color-background);
+}
+
+.TableInfo-module__fullWidth {
+  grid-column: 1/-1;
+}
+
+.TableInfo-module__chatItem {
+  width: fit-content;
+  color: var(--color-primary);
+  background-color: var(--color-background);
+}
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/modals/common/TableInfoModal.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************/
+.TableInfoModal-module__content {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: min(92vh, 45rem) !important;
+  padding-inline: 1rem !important;
+}
+
+.TableInfoModal-module__noFooter {
+  margin-top: 1.5rem;
+}
+
+.TableInfoModal-module__avatar {
+  align-self: center;
+}
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/main/premium/previews/PremiumFeaturePreviewVideo.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+.PremiumFeaturePreviewVideo-module__root {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 1;
+}
+
+.PremiumFeaturePreviewVideo-module__wrapper {
+  --y-static: -40%;
+  --y-dynamic: -10%;
+  --scroll-progress-converted: var(--scroll-progress, 0);
+  --abs-scroll-progress-converted: var(--abs-scroll-progress, 0);
+  position: absolute;
+  transform: perspective(200px) translate3d(calc(var(--scroll-progress-converted) * -30%), calc(var(--y-static) + var(--abs-scroll-progress-converted) * var(--y-dynamic)), 0) rotateY(calc(var(--scroll-progress-converted) * 40deg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  opacity: calc(1 - var(--abs-scroll-progress-converted) * 0.4);
+}
+
+.PremiumFeaturePreviewVideo-module__down {
+  --y-static: 2%;
+  --y-dynamic: 10%;
+}
+
+.PremiumFeaturePreviewVideo-module__root .reverse {
+  --scroll-progress-converted: calc((1 - var(--scroll-progress, 0)) * -1);
+  --abs-scroll-progress-converted: calc(1 - var(--abs-scroll-progress, 0));
+}
+
+.PremiumFeaturePreviewVideo-module__frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  -webkit-user-drag: none;
+}
+
+.PremiumFeaturePreviewVideo-module__video {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 4%;
+  border-radius: 0 0 10% 10%;
+}
+
+.PremiumFeaturePreviewVideo-module__down .PremiumFeaturePreviewVideo-module__video {
+  top: 0;
+  bottom: initial;
+  border-radius: 10% 10% 0 0;
+}
+
+.PremiumFeaturePreviewVideo-module__placeholder {
+  --placeholder-background: #555555;
+  position: absolute;
+  z-index: 0;
+  width: 97%;
+  height: 97%;
+  border-radius: 10%;
+  background-color: var(--placeholder-background);
+}
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/modals/common/TableAboutModal.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************/
+.TableAboutModal-module__root .modal-dialog {
+  overflow: hidden;
+  width: 26.25rem;
+}
+.TableAboutModal-module__root .modal-content {
+  padding-bottom: 1rem;
+  padding-inline: 1rem;
+}
+.TableAboutModal-module__root .ListItem .ListItem-button {
+  align-items: flex-start;
+  padding-inline: 1.5rem;
+}
+.TableAboutModal-module__root .ListItem .ListItem-main-icon {
+  margin-top: 0.875rem;
+  margin-right: 0.875rem;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+.TableAboutModal-module__root .ListItem .multiline-item .subtitle {
+  margin-top: 0.125rem;
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+.TableAboutModal-module__root .Checkbox-main::before, .TableAboutModal-module__root .Checkbox-main::after {
+  left: 2.25rem;
+}
+.TableAboutModal-module__root .Checkbox {
+  padding-inline-start: 4.5rem;
+}
+
+.TableAboutModal-module__secondary {
+  color: var(--color-text-secondary);
+}
+
+.TableAboutModal-module__topIcon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  font-size: 4rem;
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+
+.TableAboutModal-module__premiumGradient {
+  --premium-gradient: linear-gradient(88.39deg, #6C93FF -2.56%, #976FFF 51.27%, #DF69D1 107.39%);
+  background: var(--premium-gradient);
+}
+
+.TableAboutModal-module__content {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.TableAboutModal-module__listItem {
+  padding-bottom: 0.5rem;
+}
+
+.TableAboutModal-module__listItemTitle {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.TableAboutModal-module__separator {
+  width: calc(100% + 2rem);
+  margin-block: 1rem;
+}
+
+/*# sourceMappingURL=src_components_common_PeerBadge_tsx-src_components_common_pickers_PickerModal_tsx-src_compone-0d31f4.3ba8b34a6c1f7709df73.css.map*/

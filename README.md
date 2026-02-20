@@ -1,58 +1,61 @@
-# Telegram Web A
+_This file has been updated for Project Argus. The original README from `telegram-tt` is preserved as `README.original.md`._
 
-This project won the first prize 🥇 at [Telegram Lightweight Client Contest](https://contest.com/javascript-web-3) and now is an official Telegram client available to anyone at [web.telegram.org/a](https://web.telegram.org/a).
+# Project Argus
 
-According to the original contest rules, it has nearly zero dependencies and is fully based on its own [Teact](https://github.com/Ajaxy/teact) framework (which re-implements React paradigm). It also uses a custom version of [GramJS](https://github.com/gram-js/gramjs) as an MTProto implementation.
+**Project Argus** is a specialized, custom-built Telegram client designed for investigators, threat researchers, and public safety professionals. It focuses on critical operational gaps in digital investigations, specifically concerning missing children, human trafficking, and scam detection.
 
-The project incorporates lots of technologically advanced features, modern Web APIs and techniques: WebSockets, Web Workers and WebAssembly, multi-level caching and PWA, voice recording and media streaming, cryptography and raw binary data operations, optimistic and progressive interfaces, complicated CSS/Canvas/SVG animations, reactive data streams, and so much more.
+## 🏗 Architecture
 
-Feel free to explore, provide feedback and contribute.
+Argus is built on a modern, high-performance stack:
+- **Base:** Forked from [Telegram Web A (telegram-tt)](https://github.com/Ajaxy/telegram-tt), utilizing TypeScript and Teact.
+- **Desktop Wrapper:** [Tauri](https://tauri.app/) for a lightweight, secure, and performant Windows desktop experience.
+- **Core Logic:** [GramJS](https://github.com/gram-js/GramJS) for direct MTProto API interaction.
+- **Plugin System:** A modular architecture allowing investigative features to be developed and maintained independently of the core Telegram client.
 
-## Local setup
+## 🛠 Features (Phase 0 Foundation)
 
-```sh
-mv .env.example .env
+This repository contains the foundation for Project Argus, including:
+- **Modular Plugin Architecture:** Located in `src/plugins/`, allowing for clean separation of investigative tools.
+- **Tauri Integration:** Ready for native desktop builds.
+- **Secure Configuration:** Environment-based credential management.
 
-npm i
-```
+### Planned Modules
+- **Investigator Toolkit:** User profiling, account age analysis, and group membership viewing.
+- **Scam Sniffer:** Real-time scanning of crypto wallets (Chainabuse) and URLs (VirusTotal/Google Safe Browsing).
+- **Evidence Preservation:** Forensic-grade archiving, media extraction, and chain-of-custody logging.
 
-Obtain API ID and API hash on [my.telegram.org](https://my.telegram.org) and populate the `.env` file.
+## 🚀 Getting Started
 
-## Dev mode
+### Prerequisites
+- Node.js (v22+)
+- Rust (for Tauri desktop builds)
+- Telegram API Credentials (API_ID and API_HASH)
 
-```sh
+### Installation
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Configure environment:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your Telegram API credentials
+   ```
+
+### Development
+Run the web version in development mode:
+```bash
 npm run dev
 ```
 
-### Invoking API from console
-
-Start your dev server and locate GramJS worker in console context.
-
-All constructors and functions available in global `GramJs` variable.
-
-Run `npm run gramjs:tl full` to get access to all available Telegram requests.
-
-Example usage:
-``` javascript
-await invoke(new GramJs.help.GetAppConfig())
+Run the Tauri desktop app:
+```bash
+npm run tauri dev
 ```
 
-### Dependencies
-* [GramJS](https://github.com/gram-js/gramjs) ([MIT License](https://github.com/gram-js/gramjs/blob/master/LICENSE))
-* [pako](https://github.com/nodeca/pako) ([MIT License](https://github.com/nodeca/pako/blob/master/LICENSE))
-* [cryptography](https://github.com/spalt08/cryptography) ([Apache License 2.0](https://github.com/spalt08/cryptography/blob/master/LICENSE))
-* [emoji-data](https://github.com/iamcal/emoji-data) ([MIT License](https://github.com/iamcal/emoji-data/blob/master/LICENSE))
-* [twemoji-parser](https://github.com/twitter/twemoji-parser) ([MIT License](https://github.com/twitter/twemoji-parser/blob/master/LICENSE.md))
-* [rlottie](https://github.com/Samsung/rlottie) ([MIT License](https://github.com/Samsung/rlottie/blob/master/COPYING))
-* [opus-recorder](https://github.com/chris-rudmin/opus-recorder) ([Various Licenses](https://github.com/chris-rudmin/opus-recorder/blob/master/LICENSE.md))
-* [qr-code-styling](https://github.com/kozakdenys/qr-code-styling) ([MIT License](https://github.com/kozakdenys/qr-code-styling/blob/master/LICENSE))
-* [mp4box](https://github.com/gpac/mp4box.js) ([BSD-3-Clause license](https://github.com/gpac/mp4box.js/blob/master/LICENSE))
-* [music-metadata-browser](https://github.com/Borewit/music-metadata-browser) ([MIT License](https://github.com/Borewit/music-metadata-browser/blob/master/LICENSE.txt))
-* [lowlight](https://github.com/wooorm/lowlight) ([MIT License](https://github.com/wooorm/lowlight/blob/main/license))
-* [idb-keyval](https://github.com/jakearchibald/idb-keyval) ([Apache License 2.0](https://github.com/jakearchibald/idb-keyval/blob/main/LICENCE))
-* [fasttextweb](https://github.com/karmdesai/fastTextWeb)
-* webp-wasm
-* fastblur
+## ⚖️ License
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
-## Bug reports and Suggestions
-If you find an issue with this app, let Telegram know using the [Suggestions Platform](https://bugs.telegram.org/c/4002).
+---
+*Built for investigators. Focused on protection.*

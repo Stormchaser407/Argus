@@ -14,15 +14,15 @@
   "plugins": {
     "deep-link": {
       "desktop": {
-        "schemes": ["tg"]
+        "schemes": ["argus"]
       }
     }
   },
   "bundle": {
     "active": true,
     "createUpdaterArtifacts": false,
-    "category": "SocialNetworking",
-    "copyright": "Telegram Air",
+    "category": "Utility",
+    "copyright": "Project Argus — Endgame Training & Consultation Solutions",
     "externalBin": [],
     "icon": [
       "icons/32x32.png",
@@ -31,7 +31,7 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "longDescription": "",
+    "longDescription": "Project Argus — A specialized Telegram client for investigators focused on missing children, trafficking, and scam detection.",
     "macOS": {
       "entitlements": "entitlements.mac.plist",
       "exceptionDomain": "",
@@ -40,11 +40,10 @@
       "signingIdentity": null
     },
     "resources": [],
-    "shortDescription": "",
+    "shortDescription": "Investigative Telegram Client",
     "targets": [
-      "app",
       "nsis",
-      "appimage"
+      "msi"
     ],
     "windows": {
       "digestAlgorithm": "sha256",
@@ -53,6 +52,6 @@
       }
     }
   },
-  "identifier": "org.telegram.TelegramAirBeta",
-  "productName": "Telegram Air"
+  "identifier": "com.endgame.argus",
+  "productName": "Project Argus"
 }

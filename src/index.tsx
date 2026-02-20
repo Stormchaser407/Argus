@@ -27,6 +27,11 @@ import initTauriApi from './util/tauri/initTauriApi';
 import setupTauriListeners from './util/tauri/setupTauriListeners';
 import updateWebmanifest from './util/updateWebmanifest';
 
+import { initializePlugins } from './plugins';
+import './plugins/investigator-toolkit';
+import './plugins/scam-sniffer';
+import './plugins/evidence-preservation';
+
 import App from './components/App';
 
 import './assets/fonts/roboto.css';
@@ -66,6 +71,7 @@ async function init() {
 
   await initGlobal();
   getActions().init();
+  initializePlugins();
 
   getActions().updateShouldEnableDebugLog();
   getActions().updateShouldDebugExportedSenders();
