@@ -24,6 +24,7 @@ import {
   getUserFullName,
   groupStatefulContent,
 } from '../../../global/helpers';
+import { EvidenceArchiveButton } from '../../../plugins/evidence-preservation';
 import buildClassName from '../../../util/buildClassName';
 import { isUserId } from '../../../util/entities/ids';
 import { disableScrolling } from '../../../util/scrollLock';
@@ -136,6 +137,7 @@ type OwnProps = {
   onReactionPickerOpen?: (position: IAnchorPosition) => void;
   userFullName?: string;
   canGift?: boolean;
+  onArchiveAsEvidence?: (messageIds: number[]) => void;
 };
 
 const SCROLLBAR_WIDTH = 10;
@@ -230,6 +232,7 @@ const MessageContextMenu: FC<OwnProps> = ({
   onSelectLanguage,
   userFullName,
   canGift,
+  onArchiveAsEvidence,
 }) => {
   const {
     showNotification, openStickerSet, openCustomEmojiSets, loadStickers, openGiftModal,
@@ -278,6 +281,11 @@ const MessageContextMenu: FC<OwnProps> = ({
       });
     }
   }, [customEmojiSets, openCustomEmojiSets]);
+
+  const handleArchiveAsEvidence = useLastCallback(() => {
+    onArchiveAsEvidence?.(message.id ? [message.id] : []);
+    onClose();
+  });
 
   const handleOpenCustomEmojiSets = useLastCallback(() => {
     if (!customEmojiSets) return;
@@ -456,6 +464,7 @@ const MessageContextMenu: FC<OwnProps> = ({
         {canForward && <MenuItem icon="forward" onClick={onForward}>{oldLang('Forward')}</MenuItem>}
         {canSelect && <MenuItem icon="select" onClick={onSelect}>{oldLang('Common.Select')}</MenuItem>}
         {canReport && <MenuItem icon="flag" onClick={onReport}>{oldLang('lng_context_report_msg')}</MenuItem>}
+        <MenuItem icon="archive" onClick={handleArchiveAsEvidence}>Archive as Evidence</MenuItem>
         {canDelete && <MenuItem destructive icon="delete" onClick={onDelete}>{oldLang('Delete')}</MenuItem>}
         {hasCustomEmoji && (
           <>

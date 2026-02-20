@@ -41,6 +41,7 @@ import {
   isOwnMessage,
   isUserRightBanned,
 } from '../../../global/helpers';
+import { archiveMessage } from '../../../plugins/evidence-preservation';
 import {
   selectActiveDownloads,
   selectAllowedMessageActionsSlow,
@@ -535,6 +536,15 @@ const ContextMenuContainer: FC<OwnProps & StateProps> = ({
     closeMenu();
   });
 
+  const handleArchiveAsEvidence = useLastCallback((messageIds: number[]) => {
+    messageIds.forEach(id => {
+      archiveMessage(message.chatId, id);
+    });
+    showNotification({
+      message: `Archived ${messageIds.length} message(s) as evidence`,
+    });
+  });
+
   const handleScheduledMessageSend = useLastCallback(() => {
     sendScheduledMessages({ chatId: message.chatId, id: message.id });
     closeMenu();
@@ -754,6 +764,7 @@ const ContextMenuContainer: FC<OwnProps & StateProps> = ({
         onFaveSticker={handleFaveSticker}
         onUnfaveSticker={handleUnfaveSticker}
         onSelect={handleSelectMessage}
+        onArchiveAsEvidence={handleArchiveAsEvidence}
         onSend={handleScheduledMessageSend}
         onReschedule={handleOpenCalendar}
         onClose={closeMenu}

@@ -33,6 +33,7 @@ import FakeIcon from './FakeIcon';
 import GiftEffectWrapper from './gift/GiftEffectWrapper';
 import StarIcon from './icons/StarIcon';
 import VerifiedIcon from './VerifiedIcon';
+import { TrustBadge } from '../../plugins/scam-sniffer';
 
 import styles from './FullNameTitle.module.scss';
 
@@ -150,6 +151,7 @@ const FullNameTitle: FC<OwnProps> = ({
         <>
           {!noVerified && peer?.isVerified && <VerifiedIcon />}
           {!noFake && peer?.fakeType && <FakeIcon fakeType={peer.fakeType} />}
+          {realPeer && <TrustBadge userId={realPeer.id} />}
           {canShowEmojiStatus && emojiStatus && (
             <Transition
               className={styles.statusTransition}

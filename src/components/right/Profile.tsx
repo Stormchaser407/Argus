@@ -22,6 +22,8 @@ import type { AnimationLevel, ProfileState, ProfileTabType, SharedMediaType, The
 import type { RegularLangKey } from '../../types/language';
 import { MAIN_THREAD_ID } from '../../api/types';
 import { AudioOrigin, MediaViewerOrigin, NewChatMembersProgress } from '../../types';
+import { InvestigatorIntelPanel } from '../../plugins/investigator-toolkit';
+import { EvidenceCatalogPanel } from '../../plugins/evidence-preservation';
 
 import { MEMBERS_SLICE, PROFILE_SENSITIVE_AREA, SHARED_MEDIA_SLICE, SLIDE_TRANSITION_DURATION } from '../../config';
 import { selectActiveGiftsCollectionId } from '../../global/selectors/payments';
@@ -367,6 +369,11 @@ const Profile = ({
 
     if (hasCommonChatsTab && !isOwnProfile) {
       arr.push({ type: 'commonChats', key: 'ProfileTabSharedGroups' });
+    }
+
+    if (!isOwnProfile) {
+      arr.push({ type: 'argusIntel', title: 'Argus Intel' } as any);
+      arr.push({ type: 'argusEvidence', title: 'Evidence Catalog' } as any);
     }
 
     if (isChannel && similarChannels?.length && !isOwnProfile) {
@@ -1085,6 +1092,10 @@ const Profile = ({
               />
             );
           }))
+        ) : resultType === 'argusIntel' ? (
+          <InvestigatorIntelPanel chatId={chatId} />
+        ) : resultType === 'argusEvidence' ? (
+          <EvidenceCatalogPanel chatId={chatId} />
         ) : undefined}
       </div>
     );

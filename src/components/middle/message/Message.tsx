@@ -73,6 +73,13 @@ import {
 import { getPeerFullTitle } from '../../../global/helpers/peers';
 import { getMessageReplyInfo, getStoryReplyInfo } from '../../../global/helpers/replies';
 import {
+  useMessageScan,
+  WalletWarning,
+  LinkWarning,
+  PatternMatchWarning,
+  MessageScanIndicator,
+} from '../../../plugins/scam-sniffer';
+import {
   selectActiveDownloads,
   selectAnimatedEmoji,
   selectCanAutoLoadMedia,
@@ -473,6 +480,7 @@ const Message = ({
     markMentionsRead,
     openThread,
     summarizeMessage,
+    openChatWithInfo,
   } = getActions();
 
   const ref = useRef<HTMLDivElement>();
@@ -549,6 +557,14 @@ const Message = ({
   const isLocal = isMessageLocal(message);
   const isOwn = isOwnMessage(message);
   const isScheduled = messageListType === 'scheduled' || message.isScheduled;
+
+  const { scanResult, hasThreat } = useMessageScan({
+    messageId: message.id,
+    chatId: message.chatId,
+    text: message.content.text?.text,
+    senderId: message.senderId,
+    isForwarded: Boolean(message.forwardInfo),
+  });
   const hasMessageReply = isReplyToMessage(message) && !shouldHideReply;
 
   const { paidMedia } = getMessageContent(message);
@@ -1863,6 +1879,21 @@ const Message = ({
             </>
           )}
           {renderContent()}
+
+          {scanResult?.wallets.filter(w => w.isFlagged).map(wallet => (
+            <WalletWarning key={wallet.address} wallet={wallet} />
+          ))}
+
+          {scanResult?.links.filter(l => l.isMalicious).map(link => (
+            <LinkWarning key={link.url} linkResult={link} />
+          ))}
+
+          {scanResult?.patternMatches.length > 0 && (
+            <PatternMatchWarning matches={scanResult.patternMatches} />
+          )}
+
+          {hasThreat && <MessageScanIndicator scanResult={scanResult} />}
+
           {!isInDocumentGroupNotLast && metaPosition === 'standalone' && !isStoryMention && renderReactionsAndMeta()}
           {canShowActionButton && (
             <div className="message-action-buttons-container">

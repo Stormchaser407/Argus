@@ -1,6 +1,8 @@
 import type React from '../../../lib/teact/teact';
 import { memo, useMemo } from '../../../lib/teact/teact';
+import { useState } from '../../../lib/teact/teact';
 import { getActions, withGlobal } from '../../../global';
+import { ScamSnifferDashboard } from '../../../plugins/scam-sniffer';
 
 import type { ApiUser } from '../../../api/types';
 import type { GlobalState } from '../../../global/types';
@@ -144,6 +146,14 @@ const LeftSideMenuItems = ({
     openUrl({ url: FEEDBACK_URL });
   });
 
+  const [isArgusDashboardOpen, setIsArgusDashboardOpen] = useState(false);
+  const handleArgusDashboardClick = useLastCallback(() => {
+    setIsArgusDashboardOpen(true);
+  });
+  const handleCloseArgusDashboard = useLastCallback(() => {
+    setIsArgusDashboardOpen(false);
+  });
+
   return (
     <>
       {IS_MULTIACCOUNT_SUPPORTED && currentUser && (
@@ -201,6 +211,14 @@ const LeftSideMenuItems = ({
       >
         {lang('MenuSettings')}
       </MenuItem>
+      <MenuSeparator />
+      <MenuItem
+        icon="tools"
+        onClick={handleArgusDashboardClick}
+      >
+        Argus Dashboard
+      </MenuItem>
+      <MenuSeparator />
       <NestedMenuItem
         icon="more"
         footer={footer}
@@ -269,6 +287,10 @@ const LeftSideMenuItems = ({
       >
         {lang('MenuMore')}
       </NestedMenuItem>
+      <ScamSnifferDashboard
+        isOpen={isArgusDashboardOpen}
+        onClose={handleCloseArgusDashboard}
+      />
     </>
   );
 };
